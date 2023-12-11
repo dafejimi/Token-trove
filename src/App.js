@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
+import { Home, About, Resources } from "./components/index";
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ backgroundColor: '#000'}}>
+      <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/about" exact element={<About />} />            
+          <Route path="/resources" exact element={<Resources />} /> 
+        </Routes>
+    </Box>
   );
 }
 
 export default App;
+
